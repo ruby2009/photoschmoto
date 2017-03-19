@@ -1,9 +1,9 @@
-class ImageUrlUploader < CarrierWave::Uploader::Base
+class UrlUploader < CarrierWave::Uploader::Base
 
   include Cloudinary::CarrierWave
 
   process :convert => 'png'
-  process :tags => ['picture_image_url']
+  process :tags => ['picture_url']
 
   version :standard do
     process :resize_to_fill => [400, 400, :north]

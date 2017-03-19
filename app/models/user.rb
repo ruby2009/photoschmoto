@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   has_many :pictures
-  has_many :gallaries
+  has_many :galleries
 
   has_secure_password
 

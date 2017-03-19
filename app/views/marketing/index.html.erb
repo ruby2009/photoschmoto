@@ -3,8 +3,9 @@
     <h1>PhotoSchmoto</h1>
 
     <% if current_user %>
-      <%= "Welcome " %>
-      <%= link_to "My Galleries", galleries_path, class: "btn btn-danger btn-lg"  %>
+      <h2>
+        <%= "Welcome #{current_user.username}" %>
+      </h2>
     <% else %>
       <%= simple_format "A gallery with, you know... photos" %>
       <%= link_to "Login", login_path, class: "btn btn-primary btn-lg" %>
@@ -13,4 +14,41 @@
   </div>
 </div>
 
-  <h2>Our Galleries</h2>
+<h3>Our Galleries</h3>
+
+<div class="row">
+    <% if current_user %>
+      <h1 class="text-center">Your Galleries</h1>
+      <% current_user.galleries.each do |gallery| %>
+      <div class="row">
+        <div class="col-md-offset-1 col-md-2">
+          <% if gallery.pictures.any? %>
+            <%= link_to g do %>
+              <%= image_tag gallery.pictures.last.url.versions[:thumbnail] %>
+              <% end %>
+              <p><%= link_to gallery.name, gallery %>, Created at: <%= gallery.created_at.strftime("%A %b. %e %Y %I:%M %p") %></p>
+          <% else %>
+            <%= link_to gallery.name, gallery %>
+            <p>Created at: <%= gallery.created_at.strftime("%A %b. %e %Y %I:%M %p") %></p>
+          <% end %>
+        </div>
+    </div>
+      <% end %>
+    <% else %>
+      <h1 class="text-center">Galleries</h1>
+      <% @galleries.each do |gallery| %>
+        <div class="row">
+          <div class ="col-md-offset-1 col-md-2">
+            <% if gallery.pictures.any? %>
+              <%= link_to gallery do %>
+              <%= image_tag gallery.pictures.last.url.versions[:thumbnail] %>
+              <% end %>
+              <p><%= link_to gallery.name, gallery %>, Created at: <%= gallery.created_at.strftime("%A %b. %e %Y %I:%M %p") %></p>
+            <% else %>
+              <%= link_to gallery.name, gallery %>
+              <p>Created at: <%= g.created_at.strftime("%A %b. %e %Y %I:%M %p") %></p>
+            <% end %>
+          </div>
+        </div>
+        <% end %>
+<% end %>

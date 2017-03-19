@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  resources :galleries
-  resources :pictures
+  resources :galleries do
+    resources :pictures
+  end
   resources :users
 
   root 'marketing#index'

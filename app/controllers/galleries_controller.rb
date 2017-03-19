@@ -1,6 +1,6 @@
 class GalleriesController < ApplicationController
 
-  before_action :find_gallery, only: [:show, :edit] 
+  before_action :find_gallery, only: [:show, :edit]
 
   def index
   end
@@ -16,7 +16,7 @@ class GalleriesController < ApplicationController
   end
 
   def create
-    @gallery = Gallery.new(gallery_params)
+    @gallery = current_user.galleries.new(gallery_params)
     if @gallery.save
       redirect_to @gallery
     else
@@ -27,11 +27,15 @@ class GalleriesController < ApplicationController
   private
 
   def gallery_params
-    params.require(:gallery).permit(:name, :description)
+    params.require(:gallery).permit(:name, :description, :user_id)
   end
 
   def find_gallery
     @gallery = Gallery.find(params[:id])
+  end
+
+  def user_galleries
+    @galleries = Gallery.find(params[:user_id])
   end
 
 end

@@ -1,4 +1,7 @@
 class PicturesController < ApplicationController
+
+  before_action :require_user, only: [:new, :create, :destroy]
+
   def index
   end
 
@@ -9,12 +12,13 @@ class PicturesController < ApplicationController
   end
 
   def new
+    @gallery = Gallery.find_by(id: params[:gallery_id])
     @picture = Picture.new
   end
 
   def create
-    @picture = Picture.new(picture_params)
-    @picture.user = current_user
+    @gallery = Gallery.find(params[:gallery_id])
+    @picture = current_user.pictures.new(picture_params)
     if @picture.save
       redirect_to @picture.gallery
     else
@@ -25,7 +29,7 @@ class PicturesController < ApplicationController
   private
 
   def picture_params
-    params.require(:picture).permit(:image_url, :caption)
+    params.require(:picture).permit(:url, :caption, :gallery_id)
   end
 
   def find_picture
