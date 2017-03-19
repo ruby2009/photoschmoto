@@ -1,8 +1,10 @@
-<%= simple_form_for @gallery do |f| %>
+<div class="galleryform">
+  <%= simple_form_for @gallery do |f| %>
 
-  <%= f.input :name %>
-  <%= f.input :description, as: :text %> %>
+    <%= f.input :name %>
+    <%= f.input :description, as: :text %>
 
-  <%= f.button :submit, class: "btn btn-primary"%>
+    <%= f.button :submit, class: "btn btn-primary"%>
 
-<% end %>
+  <% end %>
+</div>
