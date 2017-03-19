@@ -1,0 +1,11 @@
+<div class="login">
+  <h1>Log In!</h1>
+</div>
+
+<div class="loginform">
+  <%= simple_form_for :session do |f| %>
+    <%= f.input :username %>
+    <%= f.input :password %>
+    <%= f.button :submit, "Log In!", class: "btn btn-primary" %>
+  <% end %>
+</div>

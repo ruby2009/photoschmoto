@@ -1,0 +1,30 @@
+// Place all the styles related to the marketing controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@media (min-width: 768px) {
+  /* line 180, /Users/eileencall/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/bootstrap-sass-3.3.7/assets/stylesheets/bootstrap/_navbar.scss */
+  .navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand {
+    margin-left: -15px;
+    width: 70px;
+    padding-top: 5px;
+  }
+}
+
+.navbar {
+  border-radius: 0 !important;
+  margin-bottom: 0px;
+}
+
+.jumbotron {
+    padding: 0;
+    margin-bottom: 0;
+    background: image-url('landscape.jpg');
+    background-size: cover;
+    height: 450px;
+    border-radius: 0;
+
+  h1 {
+    margin-top: 0px;
+  }
+}

@@ -1,0 +1,11 @@
+<div class="media">
+
+  <div class="media-left">
+    <%= link_to gallery.photos do %>
+      <%= image_tag gallery.photos.first, class: "media-object img-circle" %>
+    <% end %>
+  </div>
+
+  <h3><%= @gallery.name %></h3>
+
+  <p><%= @gallery.description %></p>
