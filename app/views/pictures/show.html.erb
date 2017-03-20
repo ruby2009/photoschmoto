@@ -3,4 +3,9 @@
   <h3>
     <%= "#{@picture.caption}" %>
   </h3>
+
+  <div class="sharebutton">
+    <%= link_to "Share", new_gallery_picture_share_path(@gallery, @picture), class: "btn btn-success btn-lg" %>
+  </div>
+
 </div>

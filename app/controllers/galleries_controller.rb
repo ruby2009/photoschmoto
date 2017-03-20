@@ -2,7 +2,6 @@ class GalleriesController < ApplicationController
 
   before_action :find_gallery, only: [:show, :edit]
   before_action :require_user, only: [:new, :create, :destroy]
-  before_action :is_owner, only: [:destroy, :edit]
 
   def index
   end
@@ -44,14 +43,6 @@ class GalleriesController < ApplicationController
 
   def user_galleries
     @galleries = Gallery.find(params[:user_id])
-  end
-
-  def is_owner
-    @gallery = current_user.galleries.find_by(id: params[:id])
-    unless @gallery && @gallery.user == current_user
-      flash[:danger] = "That's not your gallery."
-      redirect_to :root
-    end
   end
 
 end

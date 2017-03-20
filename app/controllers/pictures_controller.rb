@@ -7,6 +7,7 @@ class PicturesController < ApplicationController
   end
 
   def show
+    @gallery = Gallery.find(params[:gallery_id])
   end
 
   def edit

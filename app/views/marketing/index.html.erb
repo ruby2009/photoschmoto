@@ -28,8 +28,10 @@
           <% else %>
             <h4> <%= link_to gallery.name, gallery %> </h4>
           <% end %>
-          <p>Created at: <%= gallery.created_at.strftime("%A %b. %e %Y %I:%M %p") %></p>
-          <%= button_to "Delete", gallery, method: :delete, class: "btn btn-danger btn-lg" %>
+          <p>Created at: <%= gallery.created_at.to_s(:long) %></p>
+          <% if current_user == gallery.user %>
+            <%= button_to "Delete", gallery, method: :delete, class: "btn btn-danger btn-lg" %>
+          <% end %>
         </div>
     </div>
       <% end %>

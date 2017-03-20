@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
+
   resources :galleries do
-    resources :pictures
+    resources :share, only: [:new, :create]
+    resources :pictures do
+      resources :share, only: [:new, :create]
+    end
   end
+
   resources :users
 
   root 'marketing#index'
@@ -9,8 +14,6 @@ Rails.application.routes.draw do
   get "/login" => 'sessions#new', as: :login_path
   post "/login" => 'sessions#create'
   delete "/logout" => 'sessions#destroy', as: :logout
-  get '/galleries/:id/share' => 'share#new', as: :share_gallery
-  post '/galleries/:id/share' => 'share#create'
 
 
 
