@@ -2,6 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+body {
+  padding-bottom: 30px;
+}
+
 @media (min-width: 768px) {
   /* line 180, /Users/eileencall/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/bootstrap-sass-3.3.7/assets/stylesheets/bootstrap/_navbar.scss */
   .navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand {

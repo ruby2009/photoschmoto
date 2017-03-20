@@ -14,39 +14,39 @@
   </div>
 </div>
 
-<h3>Our Galleries</h3>
-
 <div class="row">
     <% if current_user %>
-      <h1 class="text-center">Your Galleries</h1>
+      <h2 class="text-center">Your Galleries</h2>
       <% current_user.galleries.each do |gallery| %>
       <div class="row">
-        <div class="col-md-offset-1 col-md-2">
+        <div class="col-md-offset-1 col-md-4">
           <% if gallery.pictures.any? %>
-            <%= link_to g do %>
+            <h4><%= link_to gallery.name, gallery %></h4>
+            <%= link_to gallery do %>
               <%= image_tag gallery.pictures.last.url.versions[:thumbnail] %>
               <% end %>
-              <p><%= link_to gallery.name, gallery %>, Created at: <%= gallery.created_at.strftime("%A %b. %e %Y %I:%M %p") %></p>
           <% else %>
-            <%= link_to gallery.name, gallery %>
-            <p>Created at: <%= gallery.created_at.strftime("%A %b. %e %Y %I:%M %p") %></p>
+            <h4> <%= link_to gallery.name, gallery %> </h4>
           <% end %>
+          <p>Created at: <%= gallery.created_at.strftime("%A %b. %e %Y %I:%M %p") %></p>
+          <%= button_to "Delete", gallery, method: :delete, class: "btn btn-danger btn-lg" %>
         </div>
     </div>
       <% end %>
     <% else %>
-      <h1 class="text-center">Galleries</h1>
+      <h2 class="text-center">Galleries</h2>
       <% @galleries.each do |gallery| %>
         <div class="row">
-          <div class ="col-md-offset-1 col-md-2">
+          <div class ="col-md-offset-1 col-md-4">
             <% if gallery.pictures.any? %>
+              <h4><%= link_to gallery.name, gallery %></h4>
               <%= link_to gallery do %>
               <%= image_tag gallery.pictures.last.url.versions[:thumbnail] %>
               <% end %>
-              <p><%= link_to gallery.name, gallery %>, Created at: <%= gallery.created_at.strftime("%A %b. %e %Y %I:%M %p") %></p>
+              <p>Created at: <%= gallery.created_at.strftime("%A %b. %e %Y %I:%M %p") %></p>
+
             <% else %>
-              <%= link_to gallery.name, gallery %>
-              <p>Created at: <%= g.created_at.strftime("%A %b. %e %Y %I:%M %p") %></p>
+              <h4> <%= link_to gallery.name, gallery %> </h4>
             <% end %>
           </div>
         </div>

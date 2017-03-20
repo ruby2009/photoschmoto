@@ -6,7 +6,7 @@ class UrlUploader < CarrierWave::Uploader::Base
   process :tags => ['picture_url']
 
   version :standard do
-    process :resize_to_fill => [400, 400, :north]
+    process :resize_to_fill => [200, 200, :north]
   end
 
   version :thumbnail do

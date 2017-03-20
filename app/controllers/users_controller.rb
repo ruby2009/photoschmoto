@@ -32,4 +32,12 @@ class UsersController < ApplicationController
   def find_user
     @user = User.find(params[:id])
   end
+
+  def require_self
+    unless @user == current_user
+      flash[:danger] = "You can't do this."
+      redirect_to :root
+    end
+  end
+
 end
