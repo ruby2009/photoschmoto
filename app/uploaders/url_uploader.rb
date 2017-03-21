@@ -9,6 +9,10 @@ class UrlUploader < CarrierWave::Uploader::Base
     process :resize_to_fill => [200, 200, :north]
   end
 
+  version :large do
+    process :resize_to_fill => [600, 600, :north]
+  end
+
   version :thumbnail do
     resize_to_fit(50, 50)
   end
