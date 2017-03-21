@@ -1,24 +1,11 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+PhotoSchmoto is a basic photo gallery app. 
+It demonstrates the ability to implement a sign up, login, and logout. 
+The app has a file uploader.
+PhotoSchmoto is built with nested routes.
+It demonstrates mailers for sign up and also incorporates email sharing of galleries and photos.
 
-Things you may want to cover:
+Heroku Link
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+https://agile-brook-98890.herokuapp.com/
